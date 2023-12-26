@@ -1,4 +1,4 @@
-class Trapp < Fomula
+class Trapp < Formula
   desc "Automated Job Application Tracker"
   homepage "trapp.sh"
   url "https://github.com/KartavyaSharma/trapp/releases/download/Production/trapp-v1.0.0.tar.gz"
