@@ -32,7 +32,7 @@ class Trapp < Formula
     end
 
     # Create the ~/.trapp directory
-    trapp_home = Pathname.new("#{ENV["HOME"]}/.trapp")
+    trapp_home = "~/.trapp"
     mkdir_p trapp_home
   
     # Extract all files from the tarball into the ~/.trapp directory
