@@ -17,7 +17,6 @@ class Trapp < Formula
   if OS.mac?
     depends_on "colima"
     depends_on "coreutils"
-    depends_on "google-chrome"
     depends_on "openssl@1.1"
   elsif OS.linux?
     depends_on "build-essential"
@@ -27,6 +26,11 @@ class Trapp < Formula
   end
   
   def install
+    # Check if Google Chrome is installed
+    unless File.exist?("/Applications/Google Chrome.app")
+      odie "Google Chrome is required. Please install it with `brew install --cask google-chrome`."
+    end
+
     # Create the ~/.trapp directory
     trapp_home = Pathname.new("#{ENV["HOME"]}/.trapp")
     mkdir_p trapp_home
