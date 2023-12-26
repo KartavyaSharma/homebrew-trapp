@@ -10,7 +10,7 @@ class Trapp < Formula
   depends_on "gum"
   depends_on "python3"
   depends_on "rm-improved"
-  depends_on "tar"
+  depends_on "gnu-tar"
   depends_on "unzip"
   depends_on "wget"
 
