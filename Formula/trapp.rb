@@ -36,7 +36,7 @@ class Trapp < Formula
     mkdir_p trapp_home
   
     # Extract all files from the tarball into the ~/.trapp directory
-    system "tar", "-xzf", "trapp-v1.0.0.tar.gz", "-C", trapp_home
+    system "tar", "-xzvf", "trapp-v1.0.0.tar.gz", "-C", trapp_home
   
     # Create the trapp command script
     (bin/"trapp").write <<~EOS
