@@ -26,29 +26,22 @@ class Trapp < Formula
   end
   
   def install
-    # Check if Google Chrome is installed
-    unless File.exist?("/Applications/Google Chrome.app")
-      odie "Google Chrome is required. Please install it with `brew install --cask google-chrome`."
-    end
+    # Extract the tarball contents
+    tarball_contents = Dir["*"]
+    
+    # Create .trapp directory in the user's home
+    trapp_dir = Pathname.new(ENV["HOME"])/".trapp"
+    mkdir_p trapp_dir
+    
+    # Move the contents of the tarball to the .trapp directory
+    tarball_contents.each { |file| mv file, trapp_dir }
 
-    # Create the ~/.trapp directory
-    trapp_home = "~/.trapp"
-    mkdir_p trapp_home
-  
-    # Extract all files from the tarball into the ~/.trapp directory
-    system "tar", "-xzvf", "trapp-v1.0.0.tar.gz", "-C", trapp_home
-  
-    # Create the trapp command script
-    (bin/"trapp").write <<~EOS
-      #!/bin/bash
-      #{trapp_home}/start.sh
-    EOS
-  
-    # Ensure the start.sh script is executable
-    chmod 0755, trapp_home/"start.sh"
-  end 
-  
+    # Link the bash script to bin
+    bin.install trapp_dir/"script.sh"
+  end
+
   test do
-    system "trapp", "--version"
+    # Replace with a suitable test, e.g., checking output of a command
+    system "#{bin}/script.sh", "--version"
   end
 end
