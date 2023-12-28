@@ -30,12 +30,9 @@ class Trapp < Formula
     tarball_contents = Dir["*"]
     
     # Create .trapp directory in the user's home
-    trapp_dir = ENV["HOME"]/".trapp"
+    trapp_dir = "~"/".trapp"
     mkdir_p trapp_dir
-
-    # Print trapp directory
-    puts "Trapp directory: #{trapp_dir}"
-    
+ 
     # Move the contents of the tarball to the .trapp directory
     tarball_contents.each { |file| mv file, trapp_dir }
 
