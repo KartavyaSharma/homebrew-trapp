@@ -37,11 +37,11 @@ class Trapp < Formula
     tarball_contents.each { |file| mv file, trapp_dir }
 
     # Link the bash script to bin
-    bin.install trapp_dir/"script.sh"
+    bin.install trapp_dir/"start.sh"
   end
 
   test do
     # Replace with a suitable test, e.g., checking output of a command
-    system "#{bin}/script.sh", "--version"
+    system "#{bin}/start.sh", "--help"
   end
 end
