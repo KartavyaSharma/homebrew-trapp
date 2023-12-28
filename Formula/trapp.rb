@@ -29,11 +29,8 @@ class Trapp < Formula
     # Extract the tarball contents
     tarball_contents = Dir["*"]
     
-    trapp_dir = Pathname.new "#{Dir.home}/.trapp"
+    trapp_dir = Pathname.new "~/.trapp"
     mkdir_p trapp_dir unless trapp_dir.exist?
-
-    # print trapp_dir
-    puts "Installing trapp to #{trapp_dir}"
  
     # Move the contents of the tarball to the .trapp directory
     tarball_contents.each { |file| mv file, trapp_dir }
