@@ -36,11 +36,8 @@ class Trapp < Formula
     # Move the contents of the tarball to the .trapp directory
     tarball_contents.each { |file| mv file, trapp_dir }
 
-    # Rename the start.sh script to trapp
-    mv trapp_dir/"start.sh", trapp_dir/"trapp"
-
     # Link the bash script to bin
-    bin.install_symlink trapp_dir/"trapp"
+    bin.install trapp_dir/"start.sh" => "trapp"
   end
 
   test do
