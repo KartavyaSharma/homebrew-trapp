@@ -26,6 +26,9 @@ class Trapp < Formula
   end
   
   def install
+    # Extract the tarball
+    system "tar", "xvf", "trapp-v1.0.0.tar.gz"
+
     # Extract the tarball contents
     tarball_contents = Dir["*"]
     
