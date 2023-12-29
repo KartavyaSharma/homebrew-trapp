@@ -26,20 +26,15 @@ class Trapp < Formula
   end
   
   def install
-    # Extract the tarball
-    system "tar", "xvf", "trapp-v1.0.0.tar.gz"
-
-    # Extract the tarball contents
-    tarball_contents = Dir["*"]
+    # Place all project files in the package's libexec directory
+    libexec.install Dir["*"]
     
-    trapp_dir = Pathname.new "~/.trapp"
-    mkdir_p trapp_dir unless trapp_dir.exist?
- 
-    # Move the contents of the tarball to the .trapp directory
-    tarball_contents.each { |file| mv file, trapp_dir }
-
-    # Link the bash script to bin
-    bin.install trapp_dir/"start.sh" => "trapp"
+    # Write an executable script that runs your `start.sh` script
+    (bin/"trapp").write <<~EOS
+      #!/bin/bash
+      exec "#{libexec}/start.sh" "$@"
+    EOS
+    bin.install_symlink "#{libexec}/start.sh" => "trapp"
   end
 
   test do
