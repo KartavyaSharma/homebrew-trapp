@@ -39,6 +39,6 @@ class Trapp < Formula
 
   test do
     # Replace with a suitable test, e.g., checking output of a command
-    system "#{bin}/start.sh", "--help"
+    system "trapp", "--help"
   end
 end
