@@ -3,6 +3,7 @@ class Trapp < Formula
   homepage "trapp.sh"
   url "https://github.com/KartavyaSharma/trapp/releases/download/Production/trapp-v1.0.0.tar.gz"
   sha256 "f9f43e303807ccf92b82084d6bd511609df52a10ba1fe30dedba2f6d5ccc4b6e"
+
   depends_on "bash"
   depends_on "bat"
   depends_on "docker"
