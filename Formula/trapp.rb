@@ -2,7 +2,7 @@ class Trapp < Formula
   desc "Automated Job Application Tracker"
   homepage "trapp.sh"
   url "https://github.com/KartavyaSharma/trapp/releases/download/Production/trapp-v1.0.0.tar.gz"
-  sha256 "bf0327b35bdb095a064bd2fb1203652e479ca4d16adb30cb78724d4998a7f1f3"
+  sha256 "1b0d82f4eaca62b4f090322075e7de02043164416db4fe3d9dd9038883b7d5c1"
 
   depends_on "bash"
   depends_on "bat"
@@ -24,25 +24,7 @@ class Trapp < Formula
     depends_on "python3-setuptools"
     depends_on "python3-venv"
   end
-
-  def caveats
-    <<~EOS
-      To finish the installation, set the TRAPP_HOME environment variable in your shell:
-      For bash users:
-        echo 'export TRAPP_HOME="#{libexec}"' >> ~/.bash_profile
-
-      For zsh users:
-        echo 'export TRAPP_HOME="#{libexec}"' >> ~/.zshrc
-
-      Then, restart your terminal or run:
-      For bash users:
-        source ~/.bash_profile
-
-      For zsh users:
-        source ~/.zshrc
-    EOS
-  end 
-  
+ 
   def install
     # Place all project files in the package's libexec directory
     libexec.install Dir["*"]
