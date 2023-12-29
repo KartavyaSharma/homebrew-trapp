@@ -24,6 +24,24 @@ class Trapp < Formula
     depends_on "python3-setuptools"
     depends_on "python3-venv"
   end
+
+  def caveats
+    <<~EOS
+      To finish the installation, set the TRAPP_HOME environment variable in your shell:
+      For bash users:
+        echo 'export TRAPP_HOME="#{libexec}"' >> ~/.bash_profile
+
+      For zsh users:
+        echo 'export TRAPP_HOME="#{libexec}"' >> ~/.zshrc
+
+      Then, restart your terminal or run:
+      For bash users:
+        source ~/.bash_profile
+
+      For zsh users:
+        source ~/.zshrc
+    EOS
+  end 
   
   def install
     # Place all project files in the package's libexec directory
