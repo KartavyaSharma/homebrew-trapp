@@ -3,7 +3,7 @@ class Trapp < Formula
     desc "Automated Job Application Tracker on the CLI"
     homepage "trapp.sh"
     url "https://github.com/KartavyaSharma/trapp/releases/download/Production/trapp-v1.0.0.tar.gz"
-    sha256 "6313aadfb04bf7fb4cd3ad83c7fe3ece6aa4d13b2e719c2cb274a2584a4589a2"
+    sha256 "a99ebe2375d118d1f35aaa12da0993694631bbe156f19dc1bd1b5af8844769aa"
 
     depends_on "bash"
     depends_on "bat"
